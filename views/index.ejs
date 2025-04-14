@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    </head>
+    <body>
+        <div class="main w-full min-h-screen bg-zinc-900 text-white">
+                <div class="form p-10">
+                    <h1 class="text-3xl py-3">TASK MANAGER</h1>
+                    <form action="/create" method="post">
+                        <input class="block w-full rounded-md outline-none px-5 py-2 bg-zinc-800 " type="text" placeholder="title goes here" name="title">
+                        <textarea class="block w-full rounded-md mt-2 px-5 py-2 bg-zinc-800 resize-none" placeholder="task details goes here" name="details"></textarea>
+                        <input class="mt-2 bg-blue-600 px-5 py-2 rounded-md" type="submit" value="create task">
+                    </form>
+                </div>
+                <div class="tasks p-10 flex gap-3 flex-wrap">
+                    <% if (files.length > 0) { %>
+                        <% files.forEach(function(val) { %>
+                            <div class="task min-w-72 rounded-md px-3 py-4 bg-zinc-800" >
+                                <h1 class="text-white text-3xl tracking-tighter"><%= val %></h1>
+                                <div class="flex w-full justify-between mt-3 items-center">
+                                    <a class="text-blue-500 inline-block " href="/file/<%= val %>">Read More</a>
+                                    <a class="text-zinc-600 inline-block " href="/edit/<%= val %>">Edit </a>
+                                </div>
+                            </div>
+                        <% }); %>
+                    <% } else { %>
+                        <h3 class="text-zinc-400">No Task Yet</h3>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+
+        <script src="" async defer></script>
+    </body>
+</html>
